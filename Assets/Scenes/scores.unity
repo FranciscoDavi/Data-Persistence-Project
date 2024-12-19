@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1696918156}
+      - m_Target: {fileID: 1689616730}
         m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -677,6 +677,7 @@ GameObject:
   - component: {fileID: 1689616728}
   - component: {fileID: 1689616727}
   - component: {fileID: 1689616726}
+  - component: {fileID: 1689616730}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -766,6 +767,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1689616730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689616725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6221e355d3c4ee34e8bc2cb83e2f8f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameInput: {fileID: 0}
+  msgText: {fileID: 0}
 --- !u!1 &1696918153
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +808,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696918153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbb84bfd20a30e498ee51df2a423ddf, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ec548d517db646419275623cebfdca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreList: {fileID: 1153351048}
@@ -820,11 +835,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696918153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6221e355d3c4ee34e8bc2cb83e2f8f19, type: 3}
+  m_Script: {fileID: 11500000, guid: bcbb84bfd20a30e498ee51df2a423ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameInput: {fileID: 0}
-  msgText: {fileID: 0}
+  filePath: 
 --- !u!1 &1875330149
 GameObject:
   m_ObjectHideFlags: 0

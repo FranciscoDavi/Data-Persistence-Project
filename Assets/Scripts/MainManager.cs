@@ -23,6 +23,7 @@ public class MainManager : MonoBehaviour
     {
         nameText.text = $"{DataPersistence.Instance.playerName}";
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,21 +76,10 @@ public class MainManager : MonoBehaviour
 
     void SetBestScore()
     {
-        var data = DataPersistence.Instance;
-        var bestPlay = data.GetBestScore();
-        
-        if(bestPlay == null)
-        {
-            data.bestScore = m_Points;
-            data.Save();
-            return;
-        }
-
-        if (m_Points > bestPlay.bestScore)
-        {
-            DataPersistence.Instance.bestScore = m_Points;
-            DataPersistence.Instance.Save();
-        }
+     
+        ScoreManager scoreManager = ScoreManager.Instance;
+        scoreManager.AddScore(DataPersistence.Instance.playerName, m_Points);
+         
     }
 
     public void GameOver()

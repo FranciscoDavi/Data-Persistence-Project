@@ -1,29 +1,85 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UI;
-using static DataPersistence;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text ScoreList;
+    public static ScoreManager Instance { get; private set; }
+    public string filePath;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        DataPersistence dp = DataPersistence.Instance;
-      
-        if(dp != null)
-        {
-            SaveData bestMatch = dp.GetBestScore();
-            ScoreList.text = $"{bestMatch.playerName}: {bestMatch.bestScore}";
-        }
-        else
-        {
-            ScoreList.text = $"No have matches :(";
-        }
-        
+        Instance = this;
+        filePath = Application.persistentDataPath + "/savefile.json";
     }
 
-   
+
+    [System.Serializable]
+    public class ScoreEntry
+    {
+        public int bestScore;
+        public string playerName;
+
+        public ScoreEntry(string playerName, int bestScore)
+        {
+            this.playerName = playerName;
+            this.bestScore = bestScore;
+        }
+    }
+
+    [System.Serializable]
+    public class ScoreData
+    {
+        public List<ScoreEntry> scores = new List<ScoreEntry>(); //Lista com os jogadores e seus scores
+    }
+
+    public void AddScore(string playerName, int score)
+    {
+
+        ScoreData scoreData = LoadScores(); //Carrega todos os scores
+
+        scoreData.scores.Add(new ScoreEntry(playerName, score)); //Adiciona novos valor a lista
+
+        scoreData.scores.Sort((a, b) => b.bestScore.CompareTo(a.bestScore)); //Ordena a lista da menor pontuação para a maior
+
+        if (scoreData.scores.Count > 10) //Limita a lista a no maximo 10 itens
+        {
+            scoreData.scores.RemoveAt(10);
+        }
+
+        SaveScores(scoreData);
+    }
+
+    public ScoreData LoadScores()
+    {
+        if (File.Exists(filePath)) //Verifica se o arquivo existe caso não cria um novo objeto de ScoreData
+        {
+            string json = File.ReadAllText(filePath);
+            return JsonUtility.FromJson<ScoreData>(json);
+        }
+
+        return new ScoreData();
+    }
+
+    public void SaveScores(ScoreData scoreData)
+    {
+        string json = JsonUtility.ToJson(scoreData, true);
+        File.WriteAllText(filePath, json);
+        Debug.Log($"Scores salvos em: {filePath}");
+    }
+
+
+    //Existe apenas para testes
+    public void DeleteScore()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Save deleted!");
+        }
+    }
+
 }

@@ -9,10 +9,6 @@ public class MenuUIHandler : MonoBehaviour
     public InputField nameInput;
     public Text msgText;
 
-    private void Start()
-    {
-        //DataPersistence.Instance.DeleteScore();
-    }
     public void StartGame()
     {
         string playerName = nameInput.text.ToString();
@@ -21,15 +17,7 @@ public class MenuUIHandler : MonoBehaviour
             DataPersistence.Instance.playerName = playerName;
             SceneManager.LoadScene(1);
         }
-        else
-        {
-            msgText.text = "Digite seu nome";
-        }
-        
-        if(DataPersistence.Instance.playerName != "")
-        {
-            nameInput.text = DataPersistence.Instance.playerName;
-        }
+
     }
 
     public void BackToMenu()

@@ -277,7 +277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 40.9, y: 200}
+  m_AnchoredPosition: {x: 44, y: 246}
   m_SizeDelta: {x: 203.4089, y: 38.1391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268409923
@@ -761,7 +761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: High Scores
 --- !u!222 &930688198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1235,7 +1235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 40.9, y: 249.4}
+  m_AnchoredPosition: {x: 409, y: 570}
   m_SizeDelta: {x: 203.4089, y: 38.1391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763668391
@@ -1284,7 +1284,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 67342322}
         m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: GoToHighScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
