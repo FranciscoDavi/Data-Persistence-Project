@@ -21,7 +21,11 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
-        nameText.text = $"{DataPersistence.Instance.playerName}";
+        if(DataPersistence.Instance != null)
+        {
+            nameText.text = $"{DataPersistence.Instance.playerName}";
+        }
+           
     }
 
     // Start is called before the first frame update
@@ -76,10 +80,8 @@ public class MainManager : MonoBehaviour
 
     void SetBestScore()
     {
-     
         ScoreManager scoreManager = ScoreManager.Instance;
         scoreManager.AddScore(DataPersistence.Instance.playerName, m_Points);
-         
     }
 
     public void GameOver()

@@ -15,7 +15,6 @@ public class ScoreManager : MonoBehaviour
         filePath = Application.persistentDataPath + "/savefile.json";
     }
 
-
     [System.Serializable]
     public class ScoreEntry
     {
